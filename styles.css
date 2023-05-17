@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Gill Sans", "Gill Sans MT";
   background-image: linear-gradient(rgb(1, 67, 1), rgb(161, 235, 161));
@@ -22,11 +26,15 @@ h3 {
 
 p {
   font-size: 25px;
+  border: solid none 1px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(173, 230, 186, 0.302);
 }
 
 #start-game {
   color: #016f32;
-  width: 300px;
+  width: 240px;
   background: goldenrod;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -42,12 +50,21 @@ p {
   box-shadow: 0 0 5px wheat;
 }
 
+h4 {
+  font-size: 30px;
+}
+
+.buttons {
+  display: flex;
+}
+
 #new-card {
   padding-top: 5px;
+  margin-right: 10px;
+  display: inline-block;
   color: #016f32;
   width: 300px;
   background: goldenrod;
-  margin-top: 5px;
   padding-bottom: 5px;
   font-weight: bold;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -60,12 +77,31 @@ p {
   box-shadow: 0 0 5px wheat;
 }
 
-#reset {
+#cash-out {
   padding-top: 5px;
+  margin-right: 10px;
+  display: inline-block;
   color: #016f32;
   width: 300px;
   background: goldenrod;
-  margin-top: 10px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: none;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+#cash-out:hover {
+  box-shadow: 0 0 5px wheat;
+}
+
+#reset {
+  padding-top: 5px;
+  color: #ffffff80;
+  width: 300px;
+  background: rgba(218, 63, 32, 0.673);
+  margin-top: 100px;
   padding-bottom: 5px;
   font-weight: bold;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -76,4 +112,11 @@ p {
 
 #reset:hover {
   box-shadow: 0 0 5px wheat;
+}
+
+#message-el {
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  flex: auto;
 }

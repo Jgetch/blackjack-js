@@ -4,13 +4,17 @@
   </head>
   <body>
     <h1>\\BlackJack//</h1>
-    <h3 id="message-el">Ready to start?</h3>
+    <h3 id="message-el">Click 'Dealer Draw' to start.</h3>
+    <button id="start-game" onclick="startGame()">Dealer draw!</button>
     <p id="cards-el">CARDS:</p>
     <p id="sum-el">TOTAL:</p>
-    <button id="start-game" onclick="startGame()">START GAME</button>
-    <button id="new-card" onclick="newCard()">DRAW CARD</button>
-    <button id="reset" onclick="resetGame()">RESET GAME</button>
     <p id="player-el"></p>
+    <div class="buttons">
+      <button id="new-card" onclick="newCard()">DRAW CARD</button>
+      <button id="cash-out" onclick="cashOut()">CASH OUT</button>
+    </div>
+    <h4 id="cash-amount"></h4>
+    <button id="reset" onclick="resetGame()">RESET GAME</button>
     <script src="index.js"></script>
   </body>
 </html>

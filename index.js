@@ -3,11 +3,12 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.getElementById("cards-el");
 let playerEl = document.getElementById("player-el");
-
+let cashEl = document.getElementById("cash-amount");
+let cashOutAmount = 0;
 let cards = [];
 let player = {
   name: "Winnings",
-  chips: 100,
+  chips: 10,
   chipCount: function (hasBlackJack, isAlive) {
     if (hasBlackJack === true) {
       this.chips += 10;
@@ -58,7 +59,7 @@ function renderGame() {
     player.chipCount(hasBlackJack);
     playerEl.textContent = `${player.name} : $${player.chips}`;
   } else {
-    message = "You're out of the game!";
+    message = "Better luck next time!";
     isAlive = false;
     player.chipCount(isAlive);
     playerEl.textContent = `${player.name} : $${player.chips}`;
@@ -78,4 +79,17 @@ function newCard() {
 
 function resetGame() {
   location.reload();
+}
+
+function cashOut() {
+  if (sum >= 0) {
+    cashOutAmount += player.chips;
+    cashEl.textContent = `You have banked: $${cashOutAmount}`;
+    player.chips = 0;
+    playerEl.textContent = `${player.name} : $${player.chips}`;
+  }
+  if (cashOutAmount < 0) {
+    cashEl.textContent = `You owe the table: $${Math.abs(cashOutAmount)}`;
+    playerEl.textContent = `${player.name} : $${player.chips}`;
+  }
 }
