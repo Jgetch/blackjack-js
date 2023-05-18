@@ -5,7 +5,7 @@ let cardsEl = document.getElementById("cards-el");
 let playerEl = document.getElementById("player-el");
 let cashEl = document.getElementById("cash-amount");
 let cardImg = document.getElementById("card-img");
-let cardImgTwo = document.getElementById("card-img-2");
+let cardImgTwo = document.getElementById("card-img-two");
 
 let cashOutAmount = 0;
 let cards = [];
@@ -27,6 +27,7 @@ let isAlive = false;
 let message = "";
 
 //images
+
 const king = "../cards/king.png";
 const ace = "../cards/ace.png";
 const two = "../cards/2.png";
@@ -37,13 +38,26 @@ const six = "../cards/6.png";
 const seven = "../cards/7.png";
 const eight = "../cards/8.png";
 const nine = "../cards/9.png";
-const ten = "../cards/10.png";
+
+const cardImages = [two, three, four, five, six, seven, eight, nine, king, ace];
 
 //image function
 
-function getImg(card) {
-  if (card === 11) {
-    cardImg.src = ace;
+function printCards() {
+  for (let i = 0; i < cards.length; i++) {
+    const currentCard = cards[i];
+    // console.log(cardImages[i]);
+    // console.log("current card:", cardImages[currentCard]);
+    cardImg.src = cardImages[currentCard - 2];
+  }
+}
+
+function printCardsTwo() {
+  for (let i = 0; i < cards.length; i++) {
+    const lastCard = cards[i - 1];
+    // console.log(cardImages[i]);
+    // console.log("current card:", cardImages[currentCard]);
+    cardImgTwo.src = cardImages[lastCard - 2];
   }
 }
 
@@ -73,10 +87,11 @@ function getRandomCard() {
 //button functions
 
 function renderGame() {
-  cardsEl.textContent = "CARDS: ";
-  for (let i = 0; i < cards.length; i++) {
-    cardsEl.textContent += `${cards[i]}, `;
-  }
+  // cardsEl.textContent = "CARDS DRAWN: ";
+  // for (let i = 0; i < cards.length; i++) {
+  //   cardsEl.textContent += `${cards[i]}, `;
+  // }
+
   sumEl.textContent = `TOTAL: ${sum}`;
   if (sum <= 20) {
     message = "Do you want to draw a new card?";
@@ -93,6 +108,8 @@ function renderGame() {
   }
   messageEl.textContent = message;
   console.log(message);
+  printCards();
+  printCardsTwo();
 }
 
 function newCard() {
@@ -101,7 +118,6 @@ function newCard() {
     cards.push(card);
     sum = card + sum;
     renderGame();
-    getImg();
   }
 }
 
