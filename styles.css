@@ -44,6 +44,7 @@ p {
   border: none;
   font-size: 30px;
   border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
 #start-game:hover {
@@ -71,6 +72,7 @@ h4 {
   border: none;
   font-size: 30px;
   border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
 #new-card:hover {
@@ -90,6 +92,7 @@ h4 {
   border: none;
   font-size: 30px;
   border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
 #cash-out:hover {
@@ -107,13 +110,17 @@ h4 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border: none;
   font-size: 30px;
-  border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
 #reset:hover {
   box-shadow: 0 0 5px wheat;
 }
 
+button:active {
+  transform: translateY(2px);
+  background-color: #457d39;
+}
 #message-el {
   text-align: center;
   font-weight: 600;

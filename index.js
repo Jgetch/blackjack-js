@@ -4,6 +4,9 @@ let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.getElementById("cards-el");
 let playerEl = document.getElementById("player-el");
 let cashEl = document.getElementById("cash-amount");
+let cardImg = document.getElementById("card-img");
+let cardImgTwo = document.getElementById("card-img-2");
+
 let cashOutAmount = 0;
 let cards = [];
 let player = {
@@ -23,6 +26,28 @@ let hasBlackJack = false;
 let isAlive = false;
 let message = "";
 
+//images
+const king = "../cards/king.png";
+const ace = "../cards/ace.png";
+const two = "../cards/2.png";
+const three = "../cards/3.png";
+const four = "../cards/4.png";
+const five = "../cards/5.png";
+const six = "../cards/6.png";
+const seven = "../cards/7.png";
+const eight = "../cards/8.png";
+const nine = "../cards/9.png";
+const ten = "../cards/10.png";
+
+//image function
+
+function getImg(card) {
+  if (card === 11) {
+    cardImg.src = ace;
+  }
+}
+
+//core functions
 function startGame() {
   isAlive = true;
   let firstCard = getRandomCard();
@@ -44,6 +69,8 @@ function getRandomCard() {
     return random;
   }
 }
+
+//button functions
 
 function renderGame() {
   cardsEl.textContent = "CARDS: ";
@@ -74,6 +101,7 @@ function newCard() {
     cards.push(card);
     sum = card + sum;
     renderGame();
+    getImg();
   }
 }
 
